@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -27,10 +26,6 @@ class ShoppingCart extends StatelessWidget {
     );
   }
 
-  void test() async{
-    var res =await Dio().request(path);
-  }
-
   @override
   Widget build(BuildContext context) {
     final cartState = Provider.of<CartState>(context);
@@ -39,14 +34,11 @@ class ShoppingCart extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: <Widget>[
-            FutureBuilder(
-              future: init(),
-              child: Expanded(
-                child: ListView.separated(
-                  itemCount: cartState.count,
-                  separatorBuilder: (context, index) => Divider(),
-                  itemBuilder: _buildItem,
-                ),
+            Expanded(
+              child: ListView.separated(
+                itemCount: cartState.count,
+                separatorBuilder: (context, index) => Divider(),
+                itemBuilder: _buildItem,
               ),
             ),
             Divider(),

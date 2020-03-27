@@ -3,7 +3,7 @@ import 'dart:collection';
 import 'package:flutter/material.dart';
 import 'package:presentation/state/Product.dart';
 
-class CartState extends ChangeNotifier {
+class CartState with ChangeNotifier {
   final Map<int, Product> _products = {};
 
   // 购物车中所有商品（不可变列表）
